@@ -122,6 +122,11 @@
             "RESET_FACE_ID": "Reset Face Unlock",
             "ENABLE_FACE_ID": "Enable Face Unlock",
             "PIN_CODE": "Pin code",
+            "PIN_CODE_ERROR": {
+                "TITLE": "Error",
+                "WRONG": "Wrong Pin Code",
+                "OK": "OK"
+            },
             "DISABLE_FACE_ID_POPUP": {
                 "TITLE": "Turn Off Face Unlock",
                 "TEXT": "Are you sure you want to turn off Face Unlock?",
