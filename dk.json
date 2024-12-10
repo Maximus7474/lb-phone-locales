@@ -494,7 +494,7 @@
             "FUEL": "Brændstof",
             "ENGINE": "Motor",
             "BODY": "Karosseri",
-            "Vehicle": "Køretøj",
+            "VEHICLE": "Køretøj",
             "STATUS": "Status",
             "LOCKED": "Låst",
             "LOCK": "Ulåst",
