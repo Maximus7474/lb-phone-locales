@@ -4,6 +4,7 @@ on:
   pull_request:
     branches:
       - main
+  workflow_dispatch:
 
 jobs:
   validate:
@@ -25,6 +26,4 @@ jobs:
 
     - name: Validate JSON Files
       run: |
-        FILES=$(git diff --name-only $GITHUB_EVENT_BEFORE $GITHUB_SHA | grep '.json')
-        echo "Files to validate: $FILES"  # Log the FILES variable
-        node ./.github/scripts/validate-locale-files.js $FILES
+        node ./.github/scripts/validate-locale-files.js
