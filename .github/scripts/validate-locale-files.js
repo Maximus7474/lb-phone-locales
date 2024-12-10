@@ -28,6 +28,7 @@ function validateJsonFile(filePath) {
 }
 
 const files = process.argv.slice(2);
+console.log('Files to check:', files);
 files.forEach((file) => {
     if (file.endsWith('.json')) {
         console.log(`\x1b[34mChecking ${file}\x1b[0m`)
