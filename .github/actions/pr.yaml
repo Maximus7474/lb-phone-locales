@@ -2,8 +2,8 @@ name: Validate Locale Files
 
 on:
   pull_request:
-    paths:
-      - '*.json'
+    branches:
+      - main
 
 jobs:
   validate:
