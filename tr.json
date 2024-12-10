@@ -520,29 +520,29 @@
             },
             "WITHDRAW_POPUP": {
                 "TITLE": "Para Çek",
-                 "DESCRIPTION": "Şirket hesabından para çek",
-                  "AMOUNT": "Tutar",
-                   "CANCEL": "İptal",
+                "DESCRIPTION": "Şirket hesabından para çek",
+                "AMOUNT": "Tutar",
+                "CANCEL": "İptal",
                 "PROCEED": "Onayla"
             },
             "HIRE_POPUP": {
                 "TITLE": "İşe Al",
-                 "DESCRIPTION": "Yeni bir çalışan işe alın",
+                "DESCRIPTION": "Yeni bir çalışan işe alın",
                 "PLACEHOLDER": "ID",
                 "CANCEL": "İptal",
                 "PROCEED": "Onayla"
             },
             "FIRE_POPUP": {
                 "TITLE": "Çalışan Kov",
-                 "DESCRIPTION": "{name}'i kovmak istediğinizden emin misiniz?",
+                "DESCRIPTION": "{name}'i kovmak istediğinizden emin misiniz?",
                 "PLACEHOLDER": "ID",
-                "İPTAL": "İptal",
+                "CANCEL": "İptal",
                 "PROCEED": "Onayla"
             },
             "CALL_POPUP": {
                 "TITLE": "Çağrı",
-                 "DESCRIPTION": "{name}'i aramak istediğinizden emin misiniz?",
-                  "CANCEL": "İptal",
+                "DESCRIPTION": "{name}'i aramak istediğinizden emin misiniz?",
+                "CANCEL": "İptal",
                 "PROCEED": "Onayla"
             }
         },
