@@ -1804,5 +1804,6 @@
             }
         }
     },
-    "BLA_DIBLA": "Test"
+    "BLA_DIBLA": "Test",
+    "BLA_DIBLA_BLA": "Test2"
 }
