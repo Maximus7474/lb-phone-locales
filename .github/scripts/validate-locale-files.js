@@ -27,11 +27,30 @@ function validateJsonFile(filePath) {
     }
 }
 
-const files = process.argv.slice(2);
-console.log('Files to check:', files);
-files.forEach((file) => {
-    if (file.endsWith('.json')) {
-        console.log(`\x1b[34mChecking ${file}\x1b[0m`)
-        validateJsonFile(path.resolve(file));
-    }
-});
+let files = process.argv.slice(2);
+
+if (files.length === 0) {
+    const parentDir = path.resolve(__dirname, '../../');
+
+   
+    fs.readdir(parentDir, (err, allFiles) => {
+        if (err) {
+            console.error('Error reading directory:', err);
+            return;
+        }
+
+        const jsonFiles = allFiles.filter(file => file.endsWith('.json'));
+
+        jsonFiles.forEach((file) => {
+            console.log(`\x1b[34mChecking ${file}\x1b[0m`);
+            validateJsonFile(path.resolve(parentDir, file));
+        });
+    });
+} else {
+    files.forEach((file) => {
+        if (file.endsWith('.json')) {
+            console.log(`\x1b[34mChecking ${file}\x1b[0m`);
+            validateJsonFile(path.resolve(file));
+        }
+    });
+}
