@@ -24,4 +24,7 @@ jobs:
         npm install
 
     - name: Validate JSON Files
-      run: node ./.github/scripts/validate-locale-files.js $(git diff --name-only ${{ github.event.before }} ${{ github.sha }} | grep '.json')
+      run: |
+        FILES=$(git diff --name-only $GITHUB_EVENT_BEFORE $GITHUB_SHA | grep '.json')
+        echo "Files to validate: $FILES"  # Log the FILES variable
+        node ./.github/scripts/validate-locale-files.js $FILES
