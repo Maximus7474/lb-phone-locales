@@ -68,7 +68,7 @@ function validateJsonFile(fileName, skipRecap) {
         return true;
     } catch (error) {
         console.error(`File '${fileName}' did not pass the checks`);
-        if (!skipRecap) process.exitCode = 1;
+        process.exitCode = 1;
         return false;
     }
 }

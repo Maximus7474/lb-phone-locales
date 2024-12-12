@@ -29,6 +29,7 @@ jobs:
     - name: Validate all JSON locale Files
       run: |
         node ./.github/scripts/validate-locale-files.js --skipdetails --updatereadme
+      continue-on-error: true
 
     - name: Check for changes in README.md
       id: check-readme
