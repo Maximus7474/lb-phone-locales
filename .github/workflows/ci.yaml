@@ -1,6 +1,11 @@
-name: Validate All Locale Files
+name: Update Readme Locale Recap
 
 on:
+  push:
+    branches:
+      - main
+    paths:
+      - '*.json'
   workflow_dispatch:
 
 jobs:
@@ -26,19 +31,20 @@ jobs:
         git config --global user.name "GitHub Actions"
         git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-    - name: Validate all JSON locale Files
+    - name: Update ReadMe
       run: |
         node ./.github/scripts/validate-locale-files.js --skipdetails --updatereadme
       continue-on-error: true
 
-    - name: Check for changes in README.md
+    - name: Check Readme has changed
       id: check-readme
       run: |
-        git diff --exit-code README.md || echo "README.md has changes"
+        git diff --exit-code README.md
+        echo "README.md has changes=$?" >> $GITHUB_ENV
       continue-on-error: true
 
-    - name: Update repository
-      if: steps.check-readme.outputs.result == 'README.md has changes'
+    - name: Commit Changes
+      if: env.README_md_has_changes == '1'
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
