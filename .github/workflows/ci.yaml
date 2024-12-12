@@ -39,13 +39,13 @@ jobs:
     - name: Check Readme has changed
       id: check-readme
       run: |
-        git diff --exit-code README.md
+        git status --porcelain README.md | grep '^[ AM]' > /dev/null
         if [[ $? -eq 0 ]]; then
-          echo "No changes in README.md"
-          echo "README_CHANGED=false" >> $GITHUB_ENV
-        else
           echo "Changes detected in README.md"
           echo "README_CHANGED=true" >> $GITHUB_ENV
+        else
+          echo "No changes in README.md"
+          echo "README_CHANGED=false" >> $GITHUB_ENV
         fi
       continue-on-error: true
 
