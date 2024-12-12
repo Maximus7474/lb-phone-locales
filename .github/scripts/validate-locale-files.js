@@ -110,13 +110,12 @@ function updateReadMeFile(localesStatuses) {
         `<!-- Recap End -->`
     );
 
-    fs.writeFile(filePath, newFileContent, (err) => {
-        if (err) {
-            console.error('Error writing to README.md:', err);
-        } else {
-            console.log('README.md has been successfully updated!');
-        }
-    });
+    try {
+        fs.writeFileSync(filePath, newFileContent);
+        console.log('README.md has been successfully updated!');
+    } catch (err) {
+        console.error('Error writing to README.md:', err);
+    }
 }
 
 const args = process.argv.slice(2);
