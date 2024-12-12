@@ -21,6 +21,26 @@ jobs:
         cd .github/scripts
         npm install
 
+    - name: Bump package version
+      run: |
+        git config --global user.name "GitHub Actions"
+        git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
     - name: Validate all JSON locale Files
       run: |
-        node ./.github/scripts/validate-locale-files.js
+        node ./.github/scripts/validate-locale-files.js --skipdetails --updatereamde
+
+    - name: Check for changes in README.md
+      id: check-readme
+      run: |
+        git diff --exit-code README.md || echo "README.md has changes"
+      continue-on-error: true
+
+    - name: Update repository
+      if: steps.check-readme.outputs.result == 'README.md has changes'
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        git add .
+        git commit -am '${{ github.ref_name }}'
+        git push
