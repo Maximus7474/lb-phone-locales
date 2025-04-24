@@ -4,6 +4,8 @@ on:
   workflow_dispatch:
   push:
     branches: [fucking-tests,main]
+    paths:
+      - '*.json'
   pull_request:
     branches: [fucking-tests,main]
 
