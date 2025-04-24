@@ -37,11 +37,11 @@
     "TikTok": "Trendy"
   },
 
-    "APPS": {
-        "SETTINGS": {
+"APPS": {
+                                        "SETTINGS": {
             "TITLE": "Einstellungen",
             "BACK": "Zurück",
-            "DONE": "Fertig",
+"DONE": "Fertig",
             "EDIT": "Bearbeiten",
             "AIRPLANE_MODE": "Flugmodus",
             "AIRPLANE_MODE_DESCRIPTION": "Deaktivieren von Anrufen, Mobilfunkdaten usw..",
