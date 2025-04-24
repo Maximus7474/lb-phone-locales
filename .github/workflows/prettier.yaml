@@ -2,13 +2,14 @@ name: Prettier Format JSON
 
 on:
   push:
-    branches: [main]
+    branches: [fucking-tests,main]
   pull_request:
-    branches: [main]
+    branches: [fucking-tests,main]
 
 jobs:
   format:
     runs-on: ubuntu-latest
+    if: github.repository == 'lbphone/lb-phone-locales' || github.repository == 'Maximus7474/lb-phone-locales'
 
     steps:
       - name: Checkout repository
