@@ -1,6 +1,7 @@
 name: Prettier Format JSON
 
 on:
+  workflow_dispatch:
   push:
     branches: [fucking-tests,main]
   pull_request:
@@ -29,6 +30,13 @@ jobs:
         with:
           files: |
             **.json
+
+      - name: List all changed JSON files
+        run: |
+          echo "Changed JSON files:"
+          for file in ${{ steps.changed-json-files.outputs.all_changed_files }}; do
+            echo "$file"
+          done
 
       - name: Format JSON files with Prettier
         if: steps.changed-json-files.outputs.any_changed == 'true'
