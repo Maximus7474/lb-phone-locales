@@ -43,7 +43,7 @@ jobs:
       - name: Format JSON files with Prettier
         if: steps.changed-json-files.outputs.any_changed == 'true'
         run: |
-          for file in ${ALL_CHANGED_FILES}; do
+          for file in ${{ steps.changed-json-files.outputs.all_changed_files }}; do
             echo "$file was changed"
             npx prettier --write --tab-width 4 $file
           done
