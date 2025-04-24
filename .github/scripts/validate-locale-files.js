@@ -1,8 +1,8 @@
 const fs = require('fs');
 const path = require('path');
 
-const enJson = JSON.parse(fs.readFileSync('en.json', 'utf-8'));
 const parentDir = __dirname.includes('scripts') ? path.resolve(__dirname, '../../') : __dirname;
+const enJson = JSON.parse(fs.readFileSync(path.join(parentDir, 'en.json'), 'utf-8'));
 
 function validateEnJsonFile(fileName) {
     try {
@@ -67,7 +67,7 @@ function validateJsonFile(fileName, skipRecap) {
         console.log(`\x1b[32mFile '${fileName}' passed all checks.\x1b[0m`);
         return true;
     } catch (error) {
-        console.error(`File '${fileName}' did not pass the checks`);
+        console.error(`\x1b[31mAn error occured: File '${fileName}' did not pass the checks:\x1b[0m\n`, error.message);
         process.exitCode = 1;
         return false;
     }
@@ -84,10 +84,10 @@ function updateReadMeFile(localesStatuses) {
         process.exit(1);
     }
 
-    const regex = /- (✅|❌) \*\*(.*?)\*\* \(Base Locale - v[\d.]+\)/;
+    const regex = /- (✅|❌) \*\*(.*?)\*\* \(Base Locale\)/;
     const enEntry = fileContent.match(regex);
 
-    let updatedLocales = [enEntry ? enEntry[0] : '- ✅ **en.json** (Base Locale - v?.?.?)'];
+    let updatedLocales = [enEntry ? enEntry[0] : '- ✅ **en.json** (Base Locale)'];
 
     localesStatuses.forEach((isUpToDate, fileName) => {
         const icon = isUpToDate ? '✅' : '❌';
@@ -104,10 +104,14 @@ function updateReadMeFile(localesStatuses) {
         `## Locales Status:\n${summary}\n${updatedLocales.join('\n')}\n<!-- Recap End -->`
     );
 
-    if (newFileContent === fileContent) newFileContent += (
+    if (newFileContent === fileContent && !fileContent.includes('## Locales Status:')) newFileContent += (
         `\n\n## Locales Status:\n` +
         `${summary}\n${updatedLocales.join('\n')}\n` +
         `<!-- Recap End -->`
+    );
+
+    if (newFileContent === fileContent && fileContent.includes('## Locales Status:')) return console.log(
+        '\x1b[32mNo Changes brought to \x1b[33mREADME.md\x1b[0m'
     );
 
     try {
@@ -160,7 +164,7 @@ if (files.length === 0) {
                 validateEnJsonFile(path.resolve(parentDir, file));
                 break
             default:
-                validateJsonFile(file, path.resolve(parentDir, file), skipVerification);
+                validateJsonFile(file, skipVerification);
                 break;
         }
     });

@@ -285,6 +285,7 @@
             "SIGN_UP": "Kreiraj nalog",
             "NO_ACCOUNT": "Nemate korisnički nalog?",
             "ALREADY_HAVE": "Već imate korisnički nalog?",
+            "USERNAME_NOT_ALLOWED": "Ime nije dozvoljeno",
 
             "CHANGE_ACCOUNT": "Promjeni nalog",
             "CHANGE_PASSWORD": "Promjeni šifru",
@@ -1113,6 +1114,7 @@
             "UNKNOWN_ACCOUNT": "Nalog ne postoji",
             "INVALID_USERNAME": "Neispravano ime",
             "INCORRECT_PASSWORD": "Neispravna šifra",
+            "USERNAME_NOT_ALLOWED": "Ime nije dozvoljeno",
             "OK": "OK",
             "LOCATION": "Lokacija",
             "CHOOSE_LOCATION": {
@@ -1228,7 +1230,11 @@
             "NEW_POSTS": "Nove objave",
             "NEW_POST": "Nova objava",
             "PROTECTED_TWEETS_TITLE": "Ove objave su zaštićene.",
-            "PROTECTED_TWEETS_DESCRIPTION": "Samo prihvaćeni pratitelji imaju uvid u @{username} objave. Zaprati da bi mogao vidjeti objave."
+            "PROTECTED_TWEETS_DESCRIPTION": "Samo prihvaćeni pratitelji imaju uvid u @{username} objave. Zaprati da bi mogao vidjeti objave.",
+            "INVALID_ACCOUNT": "Nepostojeći nalog",
+            "INVALID_PASSWORD": "Neispravna lozinka",
+            "USERNAME_TAKEN": "To ime se već koristi",
+            "USERNAME_NOT_ALLOWED": "Ime nije dozvoljeno"
         },
         "SERVICES": {
             "ACTIONS": "Mogućnosti",
@@ -1691,7 +1697,9 @@
             "FLIP_CAMERA": "Stisni {key} da okrenete kameru",
             "TOGGLE_FLASH": "Stisni {key} da ugasite blic",
             "TOGGLE_CURSOR": "Stisni {key} da maknete kursor, i da gledate uokolo",
-            "CHANGE_MODE": "Stisni {key} {key2} da promjenite mod kamere"
+            "CHANGE_MODE": "Stisni {key} {key2} da promjenite mod kamere",
+			"ROLL": "Stisni {key} {key2} da okrenete kameru",
+            "FREEZE": "Stisni {key} da zaledite/odledite kameru"
         },
         "SERVICES": {
             "NEW_MESSAGE": "Nova poruka",
